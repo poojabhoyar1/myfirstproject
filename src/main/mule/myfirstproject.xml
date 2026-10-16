@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="91e67460-6dc1-4068-ac5a-75e16a50109d" >
+		<http:listener-connection host="0.0.0.0" port="8082" />
+	</http:listener-config>
+	<flow name="myfirstprojectFlow" doc:id="74c96810-6b91-4095-9f2d-f621ceccb087" >
+		<http:listener doc:name="Listener" doc:id="e1b3bab9-50cf-41de-8c3f-3231aebd6be4" config-ref="HTTP_Listener_config" path="/firstapi"/>
+		<set-payload value="my firs tpipeline project" doc:name="Set Payload" doc:id="8a58cd12-c779-438d-ba4f-23836db18a10" />
+		<ee:transform doc:name="Transform Message" doc:id="7b25a8f9-18e9-425f-b9bb-7bf49375250a" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
