@@ -47,9 +47,8 @@
                         <environment>${env}</environment>
                         <applicationName>${appname}</applicationName>
                         <businessGroup>${business}</businessGroup>
-                        <workerType>${vCore}</workerType>
-
-                        <workers>${workers}</workers> 
+                       <replicas>${replicas}</replicas>
+                       <vCores>${vCores}</vCores> 
 
                         <objectStoreV2>true</objectStoreV2>
     </cloudhub2Deployment>
