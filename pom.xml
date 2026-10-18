@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<groupId>702a1ea0-65c9-4861-b4a7-bc9f2f6f73c6</groupId>
 	<artifactId>myfirstproject</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
 	<name>myfirstproject</name>
@@ -35,7 +35,8 @@
   <artifactId>mule-maven-plugin</artifactId>
   <version>4.1.0</version>
   <extensions>true</extensions>
-  <configuration>
+  
+ <configuration>
     <cloudhub2Deployment>
         <uri>https://anypoint.mulesoft.com</uri>
         <provider>MC</provider>
@@ -50,7 +51,15 @@
         
         <vCores>${vCores}</vCores>
     </cloudhub2Deployment>
-  </configuration>
+    <distributionManagement>
+    <repository>
+        <id>anypoint-exchange-v3</id>
+        <name>Exchange Repository</name>
+        <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/702a1ea0-65c9-4861-b4a7-bc9f2f6f73c6/maven</url>
+        <layout>default</layout>
+    </repository>
+</distributionManagement>
+</configuration>
 </plugin>
 
 
