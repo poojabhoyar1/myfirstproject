@@ -29,41 +29,22 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<cloudhub2Deployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
+						<target>${ch2.target}</target>
+						<muleVersion>${app.runtime}</muleVersion>
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<environment>${env}</environment>
+						<applicationName>${appname}</applicationName>
+						<businessGroup>${business}</businessGroup>
+						<replicas>${replicas}</replicas>
+						<vCores>${vCores}</vCores>
+					</cloudhub2Deployment>
+				</configuration>
 			</plugin>
-			<plugin>
-  <groupId>org.mule.tools.maven</groupId>
-  <artifactId>mule-maven-plugin</artifactId>
-  <version>4.1.0</version>
-  <extensions>true</extensions>
-  
- <configuration>
-    <cloudhub2Deployment>
-        <uri>https://anypoint.mulesoft.com</uri>
-        <provider>MC</provider>
-        <target>${ch2.target}</target>
-        <muleVersion>${mule.version}</muleVersion>
-        <username>${anypoint.username}</username>
-        <password>${anypoint.password}</password>
-        <environment>${env}</environment>
-        <applicationName>${appname}</applicationName>
-        <businessGroup>${business}</businessGroup>
-        <replicas>${replicas}</replicas>
-        
-        <vCores>${vCores}</vCores>
-    </cloudhub2Deployment>
-    <distributionManagement>
-    <repository>
-        <id>anypoint-exchange-v3</id>
-        <name>Exchange Repository</name>
-        <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/702a1ea0-65c9-4861-b4a7-bc9f2f6f73c6/maven</url>
-        <layout>default</layout>
-    </repository>
-</distributionManagement>
-</configuration>
-</plugin>
-
-
-			
 		</plugins>
 	</build>
 
@@ -108,5 +89,14 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
+	<distributionManagement>
+		<repository>
+			<id>anypoint-exchange-v3</id>
+			<name>Exchange Repository</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/702a1ea0-65c9-4861-b4a7-bc9f2f6f73c6/maven</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
 
 </project>
