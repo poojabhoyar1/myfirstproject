@@ -37,20 +37,18 @@
   <extensions>true</extensions>
   <configuration>
     <cloudhub2Deployment>
-     <uri>https://anypoint.mulesoft.com</uri>
-
-                        <muleVersion>${mule.version}</muleVersion>
-
-                        <username>${anypoint.username}</username>
-
-                        <password>${anypoint.password}</password>
-                        <environment>${env}</environment>
-                        <applicationName>${appname}</applicationName>
-                        <businessGroup>${business}</businessGroup>
-                       <replicas>${replicas}</replicas>
-                       <vCores>${vCores}</vCores> 
-
-                        
+        <uri>https://anypoint.mulesoft.com</uri>
+        <provider>MC</provider>
+        <target>${ch2.target}</target>
+        <muleVersion>${mule.version}</muleVersion>
+        <username>${anypoint.username}</username>
+        <password>${anypoint.password}</password>
+        <environment>${env}</environment>
+        <applicationName>${appname}</applicationName>
+        <businessGroup>${business}</businessGroup>
+        <replicas>${replicas}</replicas>
+        
+        <vCores>${vCores}</vCores>
     </cloudhub2Deployment>
   </configuration>
 </plugin>
